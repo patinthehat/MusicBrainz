@@ -83,10 +83,11 @@ class GuzzleHttpAdapter extends AbstractHttpAdapter
             }
         }
 
+        $params['query'] = ['query' => $params['query']];
         $response = $this->client->request('GET', rtrim($this->endpoint,'/').'/'.ltrim($path,'/'), [
-            'json'      => $params,
+            'params'      => $params,
             'headers'   => [
-                'Accept'        => 'application/json',
+                //'Accept'        => 'application/json,',
                 'User-Agent'    => $options['user-agent']
             ]
         ]);
