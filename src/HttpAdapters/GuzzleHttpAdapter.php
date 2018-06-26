@@ -53,7 +53,7 @@ class GuzzleHttpAdapter extends AbstractHttpAdapter
         $this->client->setBaseUrl($this->endpoint);
         $this->client->setConfig(
             array_merge(
-                $this->client->getConfig()->toArray(),
+                $this->client->getConfig(),
                 array(
                     'data' => $params
                 )
@@ -89,7 +89,7 @@ class GuzzleHttpAdapter extends AbstractHttpAdapter
         // musicbrainz throttle
         sleep(1);
 
-        $body = $response->getBody();
+        $body = $response->getBody()->getContents();
         return $body;
         //return $request->send()->json();
     }
