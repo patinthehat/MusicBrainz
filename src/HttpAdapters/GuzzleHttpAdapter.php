@@ -104,7 +104,14 @@ class GuzzleHttpAdapter extends AbstractHttpAdapter
         sleep(1);
 
         $body = $response->getBody()->getContents();
-        return $body;
+        $obj = simplexml_load_string($body);
+        $json = json_encode((array)$obj);
+
+        echo "\$body = >>>$body<<<\n";
+        echo "\$json = >>>$json<<<\n";
+
+
+        return $json;
         //return $request->send()->json();
     }
 }
