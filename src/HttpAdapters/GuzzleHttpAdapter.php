@@ -50,6 +50,9 @@ class GuzzleHttpAdapter extends AbstractHttpAdapter
             throw new Exception('You must set a valid User Agent before accessing the MusicBrainz API');
         }
 
+
+        print_r($this->client);
+
         $this->client->setBaseUrl($this->endpoint);
         $this->client->setConfig(
             array_merge(
@@ -59,6 +62,8 @@ class GuzzleHttpAdapter extends AbstractHttpAdapter
                 )
             )
         );
+
+        print_r($this->client);
 
         //$request = $this->client->get($path . '{?data*}');
         //$request->setHeader('Accept', 'application/json');
@@ -72,9 +77,7 @@ class GuzzleHttpAdapter extends AbstractHttpAdapter
             }
         }
 
-        print_r($this->client);
-
-        $response = $this->client->request('GET', $path .  '{?data*}', [
+        $response = $this->client->request('GET', $path , [
             'headers' => [
                 'Accept'        => 'application/json',
                 'User-Agent'    => $options['user-agent']
