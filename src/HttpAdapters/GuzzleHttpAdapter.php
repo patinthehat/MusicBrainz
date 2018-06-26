@@ -83,7 +83,7 @@ class GuzzleHttpAdapter extends AbstractHttpAdapter
             }
         }
 
-        $response = $this->client->request('GET', $path , [
+        $response = $this->client->request('GET', rtrim($this->endpoint,'/').'/'.ltrim($path,'/'), [
             'json'      => $params,
             'headers'   => [
                 'Accept'        => 'application/json',
