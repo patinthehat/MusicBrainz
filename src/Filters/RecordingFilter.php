@@ -62,7 +62,7 @@ class RecordingFilter extends AbstractFilter implements FilterInterface
     public function parseResponse(array $response, MusicBrainz $brainz)
     {
         $xml = $response['xml'];
-        $arr = (array)simple_xml_load($xml);
+        $arr = (array)\simple_xml_load($xml);
 
         $response = $arr['recording-list'];
 
