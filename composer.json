@@ -1,9 +1,9 @@
 {
-    "name": "mikealmond/musicbrainz",
+    "name": "patinthehat/musicbrainz",
     "type": "library",
-    "description": "A PHP library for accessing the MusicBrainz API",
+    "description": "A PHP library for accessing the MusicBrainz API, updated for php7",
     "keywords": ["musicbrainz", "library", "php", "api"],
-    "homepage": "https://github.com/mikealmond/musicbrainz",
+    "homepage": "https://github.com/patinthehat/musicbrainz",
     "license": "MIT",
     "authors": [
         {
@@ -14,10 +14,10 @@
         }
     ],
     "require": {
-        "php": ">=5.3.8"
+        "php": ">=7.1",
+        "guzzlehttp/guzzle": "^6.3"
     },
     "require-dev": {
-        "guzzle/guzzle": "~3.8.0",
         "phpunit/phpunit": "3.7.*"
     },
     "suggest": {
@@ -25,13 +25,20 @@
         "rmccue/requests": "Allows you to use the RequestsHttpAdapter. You must install one of the supported adapters."
     },
     "autoload": {
-        "psr-0": {
-            "MusicBrainz": "src/"
+        "psr-4": {
+            "MusicBrainz\\": "src/"
         }
     },
     "extra": {
         "branch-alias": {
             "dev-master": "0.2.x-dev"
         }
-    }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
