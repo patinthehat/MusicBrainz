@@ -51,14 +51,17 @@ class GuzzleHttpAdapter extends AbstractHttpAdapter
         }
 
 
-        print_r($this->client);
+        var_dump($path);
+        var_dump($params);
+        var_dump($options);
+
 
         $this->client->setBaseUrl($this->endpoint);
         $this->client->setConfig(
             array_merge(
                 $this->client->getConfig(),
                 array(
-                    'data' => $params
+                    'json' => $params
                 )
             )
         );
