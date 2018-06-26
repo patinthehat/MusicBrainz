@@ -544,7 +544,7 @@ class MusicBrainz
 
         $response = $this->adapter->call($filter->getEntity() . '/', $params, $this->getHttpOptions(), false, true);
 
-        return $filter->parseResponse($response, $this);
+        return $filter->parseResponse(['xml'=>$response], $this);
     }
 
     /**
