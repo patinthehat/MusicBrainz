@@ -57,6 +57,8 @@ class GuzzleHttpAdapter extends AbstractHttpAdapter
 
 
         $this->client->setBaseUrl($this->endpoint);
+        //$this->client->setConfig(['json' => $params]);
+        /*
         $this->client->setConfig(
             array_merge(
                 $this->client->getConfig(),
@@ -65,6 +67,7 @@ class GuzzleHttpAdapter extends AbstractHttpAdapter
                 )
             )
         );
+        */
 
         print_r($this->client);
 
@@ -81,7 +84,8 @@ class GuzzleHttpAdapter extends AbstractHttpAdapter
         }
 
         $response = $this->client->request('GET', $path , [
-            'headers' => [
+            'json'      => $params,
+            'headers'   => [
                 'Accept'        => 'application/json',
                 'User-Agent'    => $options['user-agent']
             ]
